@@ -11,4 +11,4 @@ It contain also a Python module (not-functional).
 There is also some tests.
 
 My code is in french because it was for a school project (and i'm from Québec, so we need to use french :) ).
-Oh and i don't want to retranslate all my README that I have done 3 years ago... They are kinda long :P.
+Oh and i don't want to retranslate all my README that I have done 2 years ago... They are kinda long :P.
