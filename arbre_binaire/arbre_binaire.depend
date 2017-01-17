@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1449760612 source:c:\users\nicolas\documents\nico\travaux\c\devoir4arbre\arbre_binaire\arbre_binaire.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"arbre_binaire.h"
+
+1449540083 c:\users\nicolas\documents\nico\travaux\c\devoir4arbre\arbre_binaire\arbre_binaire.h
+	<stdbool.h>
+
