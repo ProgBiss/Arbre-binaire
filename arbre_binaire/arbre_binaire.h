@@ -2,34 +2,34 @@
 
     Copyright (c) 2015 Nicolas Bisson
 
-    L'autorisation est accordée, gracieusement, à toute personne acquérant une
-    copie de cette bibliothèque et des fichiers de documentation associés
-    (la "Bibliothèque"), de commercialiser la Bibliothèque sans restriction,
+    L'autorisation est accordÃ©e, gracieusement, Ã  toute personne acquÃ©rant une
+    copie de cette bibliothÃ¨que et des fichiers de documentation associÃ©s
+    (la "BibliothÃ¨que"), de commercialiser la BibliothÃ¨que sans restriction,
     notamment les droits d'utiliser, de copier, de modifier, de fusionner, de
     publier, de distribuer, de sous-licencier et / ou de vendre des copies de
-    la Bibliothèque, ainsi que d'autoriser les personnes auxquelles la
-    Bibliothèque est fournie à le faire, sous réserve des conditions suivantes:
+    la BibliothÃ¨que, ainsi que d'autoriser les personnes auxquelles la
+    BibliothÃ¨que est fournie Ã  le faire, sous rÃ©serve des conditions suivantes:
 
-    La déclaration de copyright ci-dessus et la présente autorisation doivent
-    être incluses dans toutes copies ou parties substantielles de la
-    Bibliothèque.
+    La dÃ©claration de copyright ci-dessus et la prÃ©sente autorisation doivent
+    Ãªtre incluses dans toutes copies ou parties substantielles de la
+    BibliothÃ¨que.
 
-    LA BIBLIOTHÈQUE EST FOURNIE "TELLE QUELLE", SANS GARANTIE D'AUCUNE SORTE,
-    EXPLICITE OU IMPLICITE, NOTAMMENT SANS GARANTIE DE QUALITÉ MARCHANDE,
-    D’ADÉQUATION À UN USAGE PARTICULIER ET D'ABSENCE DE CONTREFAÇON. EN AUCUN
+    LA BIBLIOTHÃˆQUE EST FOURNIE "TELLE QUELLE", SANS GARANTIE D'AUCUNE SORTE,
+    EXPLICITE OU IMPLICITE, NOTAMMENT SANS GARANTIE DE QUALITÃ‰ MARCHANDE,
+    Dâ€™ADÃ‰QUATION Ã€ UN USAGE PARTICULIER ET D'ABSENCE DE CONTREFAÃ‡ON. EN AUCUN
     CAS, LES AUTEURS OU TITULAIRES DU DROIT D'AUTEUR NE SERONT RESPONSABLES DE
-    TOUT DOMMAGE, RÉCLAMATION OU AUTRE RESPONSABILITÉ, QUE CE SOIT DANS LE
-    CADRE D'UN CONTRAT, D'UN DÉLIT OU AUTRE, EN PROVENANCE DE, CONSÉCUTIF À OU
-    EN RELATION AVEC LA BIBLIOTHÈQUE OU SON UTILISATION, OU AVEC D'AUTRES
-    ÉLÉMENTS DE LA BIBLIOTHÈQUE.
+    TOUT DOMMAGE, RÃ‰CLAMATION OU AUTRE RESPONSABILITÃ‰, QUE CE SOIT DANS LE
+    CADRE D'UN CONTRAT, D'UN DÃ‰LIT OU AUTRE, EN PROVENANCE DE, CONSÃ‰CUTIF Ã€ OU
+    EN RELATION AVEC LA BIBLIOTHÃˆQUE OU SON UTILISATION, OU AVEC D'AUTRES
+    Ã‰LÃ‰MENTS DE LA BIBLIOTHÃˆQUE.
 
 */
 
 /**
  *  \file arbre_binaire.h
  *
- *  Fichier d'entête contenant la structure de données 'arbre_binaire'.
- *  Un Arbre binaire est une liste hiérarchique de données qui ont
+ *  Fichier d'entÃªte contenant la structure de donnÃ©es 'arbre_binaire'.
+ *  Un Arbre binaire est une liste hiÃ©rarchique de donnÃ©es qui ont
  *  au plus 2 "enfants".
  *
  */
@@ -43,13 +43,25 @@
 #define ERREUR_TAILLE 255
 
 /**
- *  \brief Une liste implémenté à l'aide d'un arbre binaire.
+ *  \brief Une liste implÃ©mentÃ© Ã  l'aide d'un arbre binaire.
  */
 typedef struct arbre_binaire_struct arbre_binaire;
 
 /**
- *  \brief Alloue un espace mémoire pour y placer l'arbre binaire et y placer
- *         l'élément racine.
+ * \brief Un arbre binaire.
+ */
+struct arbre_binaire_struct {
+    int valeur;
+    struct arbre_binaire_struct * premier_fils;
+    struct arbre_binaire_struct * second_fils;
+    bool a_erreur;
+    char* erreur;
+};
+
+
+/**
+ *  \brief Alloue un espace mÃ©moire pour y placer l'arbre binaire et y placer
+ *         l'Ã©lÃ©ment racine.
  *
  *  \param valeur : La valeur de la racine de l'arbre.
  *
@@ -58,42 +70,42 @@ typedef struct arbre_binaire_struct arbre_binaire;
 arbre_binaire* creer_arbre_binaire(int valeur);
 
 /**
- *  \brief Récupère les données d'un fichier pour créer un arbre binaire.
+ *  \brief RÃ©cupÃ¨re les donnÃ©es d'un fichier pour crÃ©er un arbre binaire.
  *
- *  \param nom_fichier : Le nom du fichier qui contient les données.
+ *  \param nom_fichier : Le nom du fichier qui contient les donnÃ©es.
  *
- *  \return Un nouvel arbre binaire créé à l'aide des données d'un fichier.
+ *  \return Un nouvel arbre binaire crÃ©Ã© Ã  l'aide des donnÃ©es d'un fichier.
  */
 arbre_binaire* charger_arbre_binaire(char *nom_fichier);
 
 /**
- *  \brief Libère l'espace mémoire d'un arbre binaire.
+ *  \brief LibÃ¨re l'espace mÃ©moire d'un arbre binaire.
  *
- *  \param arbre : L'arbre binaire à supprimer.
+ *  \param arbre : L'arbre binaire Ã  supprimer.
  */
 void detruire_arbre_binaire(arbre_binaire* arbre);
 
 /**
- *  \brief Sauvegarde les données d'un arbre binaire dans un fichier.
+ *  \brief Sauvegarde les donnÃ©es d'un arbre binaire dans un fichier.
  *
- *  \param arbre        : L'arbre à enregistrer dans le fichier.
- *  \param nom_fichier  : Le fichier dans lequel sauvergarder les données.
+ *  \param arbre        : L'arbre Ã  enregistrer dans le fichier.
+ *  \param nom_fichier  : Le fichier dans lequel sauvergarder les donnÃ©es.
  */
 void sauvegarder_arbre_binaire(arbre_binaire* arbre, char * nom_fichier);
 
 /**
- *  \brief Indique le nombre d'éléments que contient l'arbre binaire.
+ *  \brief Indique le nombre d'Ã©lÃ©ments que contient l'arbre binaire.
  *
- *  \param arbre : L'arbre à trouver son nombre d'éléments.
+ *  \param arbre : L'arbre Ã  trouver son nombre d'Ã©lÃ©ments.
  *
- *  \return Le nombre d'élément qu'il y a dans l'arbre.
+ *  \return Le nombre d'Ã©lÃ©ment qu'il y a dans l'arbre.
  */
 int nombre_elements_arbre_binaire(arbre_binaire* arbre);
 
 /**
  *  \brief Indique le nombre de feuilles que contient l'arbre binaire.
  *
- *  \param arbre : L'arbre à trouver son nombre de feuilles.
+ *  \param arbre : L'arbre Ã  trouver son nombre de feuilles.
  *
  *  \return Le nombre de feuilles qu'il y a dans l'arbre.
  */
@@ -102,18 +114,18 @@ int nombre_feuilles_arbre_binaire(arbre_binaire* arbre);
 /**
  *  \brief Indique la hauteur de l'arbre binaire.
  *
- *  \param arbre : L'arbre à trouver sa hauteur.
+ *  \param arbre : L'arbre Ã  trouver sa hauteur.
  *
  *  \return La hauteur de l'arbre binaire.
  */
 int hauteur_arbre_binaire(arbre_binaire* arbre);
 
 /**
- *  \brief Indique l'élément se trouvant à la racine de l'arbre binaire.
+ *  \brief Indique l'Ã©lÃ©ment se trouvant Ã  la racine de l'arbre binaire.
  *
- *  \param arbre : L'arbre dans lequel trouver l'élément de la racine.
+ *  \param arbre : L'arbre dans lequel trouver l'Ã©lÃ©ment de la racine.
  *
- *  \return L'élément se trouvant à la racine.
+ *  \return L'Ã©lÃ©ment se trouvant Ã  la racine.
  */
 int element_arbre_binaire(arbre_binaire* arbre);
 
@@ -126,12 +138,12 @@ int element_arbre_binaire(arbre_binaire* arbre);
 void modifier_element_arbre_binaire(arbre_binaire* arbre, int valeur);
 
 /**
- *  \brief Indique si un élément à la même valeur que celle entrer en argument.
+ *  \brief Indique si un Ã©lÃ©ment Ã  la mÃªme valeur que celle entrer en argument.
  *
  *  \param arbre  : L'arbre binaire dans lequel chercher la valeur.
- *  \param valeur : La valeur à chercher dans l'arbre.
+ *  \param valeur : La valeur Ã  chercher dans l'arbre.
  *
- *  \return Vrai si un des éléments équivaut l'argument valeur.
+ *  \return Vrai si un des Ã©lÃ©ments Ã©quivaut l'argument valeur.
  */
 bool contient_element_arbre_binaire(arbre_binaire* arbre, int valeur);
 
@@ -146,11 +158,11 @@ bool contient_element_arbre_binaire(arbre_binaire* arbre, int valeur);
 arbre_binaire* premier_enfant_arbre_binaire(arbre_binaire* arbre);
 
 /**
- *  \brief Ajoute un premier enfant à l'arbre binaire, s'il y a un premier
+ *  \brief Ajoute un premier enfant Ã  l'arbre binaire, s'il y a un premier
  *         enfant ajoute une erreur.
  *
- *  \param arbre  : L'arbre binaire dans lequel créer un premier enfant.
- *  \param valeur : La valeur à placer dans le premier enfant.
+ *  \param arbre  : L'arbre binaire dans lequel crÃ©er un premier enfant.
+ *  \param valeur : La valeur Ã  placer dans le premier enfant.
  */
 void creer_premier_enfant_arbre_binaire(arbre_binaire* arbre, int valeur);
 
@@ -172,11 +184,11 @@ void retirer_premier_enfant_arbre_binaire(arbre_binaire* arbre);
 arbre_binaire* second_enfant_arbre_binaire(arbre_binaire* arbre);
 
 /**
- *  \brief Ajoute un second enfant à l'arbre binaire, s'il y a un second
+ *  \brief Ajoute un second enfant Ã  l'arbre binaire, s'il y a un second
  *         enfant ajoute une erreur.
  *
- *  \param arbre  : L'arbre binaire dans lequel créer un second enfant.
- *  \param valeur : La valeur à placer dans le second enfant.
+ *  \param arbre  : L'arbre binaire dans lequel crÃ©er un second enfant.
+ *  \param valeur : La valeur Ã  placer dans le second enfant.
  */
 void creer_second_enfant_arbre_binaire(arbre_binaire* arbre, int valeur);
 
@@ -189,9 +201,9 @@ void retirer_second_enfant_arbre_binaire(arbre_binaire* arbre);
 
 /**
  *  \brief Cherche s'il y a une erreur dans l'arbre binaire et retourne
- *         la réponse (Vrai/Faux).
+ *         la rÃ©ponse (Vrai/Faux).
  *
- *  \param arbre : l'arbre binaire à vérifier.
+ *  \param arbre : l'arbre binaire Ã  vÃ©rifier.
  *
  *  \return Vrai s'il y a erreur et Faux en cas inverse.
  */
@@ -200,7 +212,7 @@ bool a_erreur_arbre_binaire(arbre_binaire* arbre);
 /**
  *  \brief Indique le texte de l'erreur qui est dans l'arbre binaire.
  *
- *  \param arbre : L'arbre binaire à vérifier.
+ *  \param arbre : L'arbre binaire Ã  vÃ©rifier.
  *
  *  \return Le texte de l'erreur.
  */
@@ -208,17 +220,17 @@ char* erreur_arbre_binaire(arbre_binaire* arbre);
 
 /**
  *  \brief Place le message d'erreur dans l'arbre binaire et conserve
- *         celle-ci dans la librairie. Mets "a_erreur_arbre_binaire" à Vrai.
+ *         celle-ci dans la librairie. Mets "a_erreur_arbre_binaire" Ã  Vrai.
  *
- *  \param arbre : L'arbre binaire qui a été vérifié.
+ *  \param arbre : L'arbre binaire qui a Ã©tÃ© vÃ©rifiÃ©.
  *  \param erreur : La description de l'erreur.
  */
 void inscrire_erreur_arbre_binaire(arbre_binaire* arbre, const char* erreur);
 
 /**
- *  \brief Retire l'erreur en mettant "a_erreur_arbre_binaire" à Faux.
+ *  \brief Retire l'erreur en mettant "a_erreur_arbre_binaire" Ã  Faux.
  *
- *  \param arbre : L'arbre binaire qui a été vérifié.
+ *  \param arbre : L'arbre binaire qui a Ã©tÃ© vÃ©rifiÃ©.
  */
 void retirer_erreur_arbre_binaire(arbre_binaire* arbre);
 
